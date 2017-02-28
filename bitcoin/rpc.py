@@ -488,7 +488,8 @@ class Proxy(BaseProxy):
         enabled the transaction may not be available.
         """
         try:
-            r = self._call('getrawtransaction', b2lx(txid), 1 if verbose else 0)
+            #r = self._call('getrawtransaction', b2lx(txid), 1 if verbose else 0)
+            r = self._call('getrawtransaction', txid, 1 if verbose else 0)
         except InvalidAddressOrKeyError as ex:
             raise IndexError('%s.getrawtransaction(): %s (%d)' %
                     (self.__class__.__name__, ex.error['message'], ex.error['code']))
